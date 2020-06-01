@@ -1,0 +1,12 @@
+{
+    "Description": "PLASTER_ModuleDescription",
+    "ModuleVersion": "PLASTER_ModuleVersion",
+    "Path": "PLASTER_ModulePath",
+    "RootModule": "PLASTER_RootModule",
+    "Author": "PLASTER_ModuleAuthor",
+    "CompanyName": "PLASTER_ModuleCompanyName",
+    "Copyright": "PLASTER_Copyright",
+    "FunctionsToExport": [
+
+    ]
+}

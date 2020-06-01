@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<plasterManifest
+  schemaVersion="1.1"
+  templateType="Project" xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
+  <metadata>
+    <name>SmallsPlasterModuleTemplate</name>
+    <id>ad7655a4-6859-48c3-a34b-2d56787def23</id>
+    <version>2020.06.01</version>
+    <title>New PowerShell Module Project</title>
+    <description>A Plaster template for creating module projects.</description>
+    <author>Timothy Small</author>
+    <tags></tags>
+  </metadata>
+  <parameters>
+    <parameter name="ModuleName" type="text" prompt="Enter the name of the module" />
+    <parameter name="ModuleDescription" type="text" prompt="Enter a description for the module" />
+    <parameter name="ModuleVersion" type="text" default="0.0.1" prompt="Enter the module's version number" />
+    <parameter name="ModuleAuthor" type="text" prompt="Enter the module's author" />
+    <parameter name="ModuleCompanyName" type="text" prompt="Enter the module's Company Name" />
+    <parameter name="ModuleCopyright" type="text" prompt="Enter the module's copyright info" />
+  </parameters>
+  <content>
+    <file source="" destination="src\" openInEditor="true" />
+    <file source=".vscode\*" destination=".vscode\" />
+    <file source="blankBuildConfig.json" destination="buildConfig.json" />
+    <modify path="buildConfig.json" encoding="UTF8">
+      <replace>
+        <original>PLASTER_ModuleDescription</original>
+        <substitute expand="true">$PLASTER_PARAM_ModuleDescription</substitute>
+      </replace>
+      <replace>
+        <original>PLASTER_ModuleVersion</original>
+        <substitute expand="true">$PLASTER_PARAM_ModuleVersion</substitute>
+      </replace>
+      <replace>
+        <original>PLASTER_ModulePath</original>
+        <substitute expand="true">./src/${PLASTER_PARAM_ModuleName}/${PLASTER_PARAM_ModuleName}.psd1</substitute>
+      </replace>
+      <replace>
+        <original>PLASTER_RootModule</original>
+        <substitute expand="true">${PLASTER_PARAM_ModuleName}.psm1</substitute>
+      </replace>
+      <replace>
+        <original>PLASTER_ModuleAuthor</original>
+        <substitute expand="true">$PLASTER_PARAM_ModuleAuthor</substitute>
+      </replace>
+      <replace>
+        <original>PLASTER_ModuleCompanyName</original>
+        <substitute expand="true">$PLASTER_PARAM_ModuleCompanyName</substitute>
+      </replace>
+      <replace>
+        <original>PLASTER_Copyright</original>
+        <substitute expand="true">$PLASTER_PARAM_ModuleCopyright</substitute>
+      </replace>
+    </modify>
+    <file source="build.ps1" destination="build.ps1" />
+    <file source="" destination="src\${PLASTER_PARAM_ModuleName}\" />
+    <file source="blankRootModule.psm1" destination="src\${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psm1" />
+    <file source="" destination="tests\" />
+    <newModuleManifest destination="src\${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psd1" moduleVersion="$PLASTER_PARAM_ModuleVersion" rootModule="${PLASTER_PARAM_ModuleName}.psm1" author="$PLASTER_PARAM_ModuleAuthor" companyName="$PLASTER_PARAM_ModuleCompanyName" description="$PLASTER_PARAM_ModuleDescription" />
+  </content>
+</plasterManifest>
