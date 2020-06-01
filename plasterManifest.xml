@@ -9,7 +9,7 @@
     <title>New PowerShell Module Project</title>
     <description>A Plaster template for creating module projects.</description>
     <author>Timothy Small</author>
-    <tags></tags>
+    <tags>Module, ModuleManifest, ModuleProject</tags>
   </metadata>
   <parameters>
     <parameter name="ModuleName" type="text" prompt="Enter the name of the module" />
